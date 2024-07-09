@@ -1,0 +1,46 @@
+[project]
+name = "harris_polyphase"
+version = "0.1.0"
+description = "Add a short description here"
+authors = [{name = "sadguitarius"}]
+requires-python = ">= 3.11"
+dependencies = []
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["linux-64", "win-64"]
+
+[tool.pixi.pypi-dependencies]
+harris_polyphase = { path = ".", editable = true }
+
+[tool.pixi.tasks]
+start = "streamlit run harris_polyphase/tony_des_2.py"
+
+[tool.pixi.dependencies]
+python = ">=3.12.3,<3.13"
+numpy = ">=1.26.4,<1.27"
+scipy = ">=1.13.1,<1.14"
+matplotlib = ">=3.8.4,<3.9"
+streamlit = ">=1.35.0,<1.36"
+
+[tool.setuptools]
+packages = ["harris_polyphase"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "N", "A", "NPY"]
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "spaces"
+docstring-code-format = true
+
+[tool.yapf]
+based_on_style = "pep8"
+arithmetic_precedence_indication = true
